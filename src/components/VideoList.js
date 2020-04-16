@@ -3,19 +3,17 @@ import VideoListEntry from './VideoListEntry';
 
 // 실제 API를 쓰게 되면 이 fakeData는 더이상 import 하지 않아야 합니다.
 import { fakeData } from './__test__/fakeData';
-console.log(fakeData)
+console.log(fakeData);
 
-const VideoList = () => (
+const VideoList = (props) => (
   <div className="video-list media">
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
+    {props.data.map((el) => (
+      <VideoListEntry
+        key={el.id.videoId.toString()}
+        data={el}
+        handleVideoEntryClick={props.handleVideoEntryClick}
+      />
+    ))}
   </div>
 );
 
