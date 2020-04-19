@@ -27,8 +27,14 @@ class App extends React.Component {
       },
       data: fakeData,
     };
-    this.searchVideo = this.searchVideo.bind(this);
     this.handleVideoEntryClick = this.handleVideoEntryClick.bind(this);
+    this.searchVideo = this.searchVideo.bind(this);
+  }
+
+  handleVideoEntryClick(video) {
+    this.setState({
+      playingNow: video,
+    });
   }
 
   searchVideo(word) {
@@ -43,22 +49,16 @@ class App extends React.Component {
     );
   }
 
-  handleVideoEntryClick(video) {
-    this.setState({
-      playingNow: video,
-    });
-  }
-
   render() {
     return (
       <div>
         <Nav searchVideo={this.searchVideo} />
         <div className="col-md-7">
-          <VideoPlayer playingNow={this.state.playingNow} />
+          <VideoPlayer video={this.state.playingNow} />
         </div>
         <div className="col-md-5">
           <VideoList
-            data={this.state.data}
+            videos={this.state.data}
             handleVideoEntryClick={this.handleVideoEntryClick}
           />
         </div>

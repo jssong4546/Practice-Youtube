@@ -7,10 +7,10 @@ console.log(fakeData);
 
 const VideoList = (props) => (
   <div className="video-list media">
-    {props.data.map((el) => (
+    {props.videos.map((el) => (
       <VideoListEntry
         key={el.id.videoId.toString()}
-        data={el}
+        video={el}
         handleVideoEntryClick={props.handleVideoEntryClick}
       />
     ))}

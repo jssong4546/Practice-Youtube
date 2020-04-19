@@ -5,20 +5,21 @@ const VideoListEntry = (props) => (
     <div className="media-left media-middle">
       <img
         className="media-object"
-        src={props.data.snippet.thumbnails.default.url}
+        src={props.video.snippet.thumbnails.default.url}
         alt=""
         style={{ width: '150px', height: '150px' }}
+        onClick={() => props.handleVideoEntryClick(props.video)}
       />
     </div>
     <div className="media-body">
       <div
         className="video-list-entry-title"
-        onClick={() => props.handleVideoEntryClick(props.data)}
+        onClick={() => props.handleVideoEntryClick(props.video)}
       >
-        {props.data.snippet.title}
+        {props.video.snippet.title}
       </div>
       <div className="video-list-entry-detail">
-        {props.data.snippet.description}
+        {props.video.snippet.description}
       </div>
     </div>
   </div>
